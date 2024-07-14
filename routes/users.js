@@ -33,9 +33,15 @@ router.delete("/:id",  async (req, res) => {
     }
 })
 
-// GETUSER
+// GETUS
+router.get("/123",(req,res)=>{
+    console.log("it's working");
+    res.send("hello");
+    
+})
 router.get("/:id", async (req, res) => {
     try{
+        // console.log("get user");
         const user =await User.findById(req.params.id);
         const {password,...info}=user._doc;
         res.status(200).json(info);
